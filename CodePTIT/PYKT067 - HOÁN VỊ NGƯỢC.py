@@ -4,18 +4,15 @@
 import math
 # Press the green button in the gutter to run the script.
 import math
+from functools import cmp_to_key
+from itertools import permutations
 if __name__ == '__main__':
-    n=int(input())
-    for _ in range(n):
-        a=input()
-        sum=0
-        res=1e9+10
+    for _ in range(int(input())):
+        n=int(input())
+        a=list(permutations([str(x) for x in range(1,n+1)]))
+        a.reverse()
+        print(len(a))
         for i in a:
-            if i.isdigit():
-                sum=sum*10+(ord(i)-ord('0'))
-            else:
-                if sum!=0 :
-                    res=min(sum,res)
-                sum=0
-        print(res)
+            print(''.join(i),end=' ')
+        print()
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
